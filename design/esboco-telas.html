@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Hora Certa — Esboço de telas</title>
+<style>
+:root{--p:#0B5D5B;--pc:#EEF6F5;--a:#F26B4E;--ok:#2E9E5B;--al:#F6B93B;--pe:#D63B3B;--t:#1F2A2E;--ts:#5A6B70}
+*{box-sizing:border-box;margin:0}body{font-family:Inter,Calibri,Arial,sans-serif;background:#E3ECEB;color:var(--t);padding:32px}
+h1{font-family:Merriweather,Cambria,Georgia,serif;color:var(--p);font-size:28px}.sub{color:var(--ts);margin:6px 0 24px}
+.row{display:flex;gap:28px;flex-wrap:wrap}.lbl{font-weight:700;color:var(--p);margin-bottom:8px;font-size:14px}
+.ph{width:300px;height:620px;background:#fff;border-radius:36px;border:10px solid #1F2A2E;padding:22px 18px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px}
+.serif{font-family:Merriweather,Cambria,Georgia,serif}.big{font-size:26px;font-weight:700;color:var(--p)}
+.card{background:var(--pc);border-radius:18px;padding:14px;display:flex;gap:12px;align-items:center}
+.pill{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;flex:none}
+.btn{border-radius:16px;padding:18px;font-size:20px;font-weight:700;text-align:center;color:#fff;background:var(--p)}
+.btn.o{background:#fff;color:var(--p);border:3px solid var(--p)}.btn.ok{background:var(--ok)}
+.sos{position:absolute;right:16px;bottom:16px;width:64px;height:64px;border-radius:50%;background:var(--pe);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #0004}
+.s{font-size:15px;color:var(--ts)}.chip{font-size:12px;padding:3px 8px;border-radius:99px;font-weight:700;display:inline-block}
+.alert{background:var(--a);color:#fff;margin:-22px -18px 0;padding:40px 18px 26px;text-align:center}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.seg span{padding:8px 10px;border-radius:10px;border:2px solid var(--p);font-weight:700;color:var(--p);font-size:14px}
+.seg .on{background:var(--p);color:#fff}.f{border:2px solid #C9D6D4;border-radius:12px;padding:8px;font-size:16px}
+.dots{display:flex;gap:6px}.dots i{width:14px;height:14px;border-radius:50%;display:block}
+</style></head><body>
+<h1>Hora Certa — esboço de telas v0</h1><p class="sub">Ponto de partida para discussão: cores, tipografia e hierarquia. App do idoso (1–3) e do cuidador (4–5).</p>
+<div class="row">
+
+<div><div class="lbl">1 · Início (idoso)</div><div class="ph">
+<div class="s">Quinta, 6 de novembro</div><div class="serif big">Bom dia,<br>Maria! ☀️</div>
+<div class="card" style="background:#FDE9E4"><div class="pill" style="background:var(--a)">💊</div><div><div class="s">Próximo remédio · 16:00</div><div style="font-size:21px;font-weight:700">Losartana</div><div class="s">1 comprimido</div></div></div>
+<div class="card"><div class="pill" style="background:var(--p)">📅</div><div><div class="s">Amanhã · 14:00</div><div style="font-size:19px;font-weight:700">Cardiologista</div></div></div>
+<div style="flex:1"></div><div class="btn">Meus remédios</div><div class="btn o">Minhas consultas</div><div class="btn o" style="margin-right:74px">📞 Família</div>
+<div class="sos">SOS</div></div></div>
+
+<div><div class="lbl">2 · Hora do remédio (alerta)</div><div class="ph" style="padding-top:22px">
+<div class="alert"><div style="font-size:18px">⏰ São 16:00</div><div class="serif" style="font-size:30px;font-weight:700;margin-top:6px">Hora do remédio</div></div>
+<div style="text-align:center"><div style="width:120px;height:120px;border-radius:50%;background:var(--pc);margin:6px auto;display:flex;align-items:center;justify-content:center;font-size:60px">💊</div>
+<div style="font-size:28px;font-weight:800">Losartana</div><div style="font-size:20px;color:var(--ts)">1 comprimido · 50mg</div></div>
+<div style="flex:1"></div><div class="btn ok" style="font-size:26px;padding:24px">✅ Tomei</div><div class="btn o">⏰ Lembrar em 10 min</div></div></div>
+
+<div><div class="lbl">3 · Dia da consulta</div><div class="ph">
+<div class="serif big">Consulta hoje</div>
+<div class="card" style="flex-direction:column;align-items:flex-start"><div style="font-size:34px;font-weight:800;color:var(--p)">14:00</div><div style="font-size:20px;font-weight:700">Cardiologista</div><div class="s">Dr. Paulo · Rua das Flores, 123</div><div class="s">📄 Leve o relatório de remédios</div></div>
+<div class="card"><div class="pill" style="background:var(--al)">📦</div><div class="s" style="color:var(--t)"><b>Metformina acaba em 5 dias.</b> Avisamos o Carlos.</div></div>
+<div style="flex:1"></div><div class="btn" style="background:#000">🚗 Pedir Uber</div><div class="btn o" style="margin-right:74px">Ver endereço</div><div class="sos">SOS</div></div></div>
+
+<div><div class="lbl">4 · Painel (cuidador)</div><div class="ph" style="gap:10px">
+<div class="serif" style="font-size:22px;font-weight:700;color:var(--p)">Olá, Carlos</div>
+<div class="card" style="flex-direction:column;align-items:stretch;gap:8px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">👵 Mãe (Maria)</b><span class="chip" style="background:#FCE3E3;color:var(--pe)">1 alerta</span></div>
+<div class="s">Hoje: 3 de 5 doses tomadas</div><div class="dots"><i style="background:var(--ok)"></i><i style="background:var(--ok)"></i><i style="background:var(--ok)"></i><i style="background:var(--pe)"></i><i style="background:#C9D6D4"></i></div></div>
+<div class="card" style="background:#FCE3E3;flex-direction:column;align-items:stretch;gap:6px"><b style="color:var(--pe)">⚠️ Losartana 08:00 não confirmada</b><div style="display:flex;gap:8px"><div class="btn" style="padding:10px;font-size:15px;flex:1">📞 Ligar</div><div class="btn o" style="padding:10px;font-size:15px;flex:1">Já tomou</div></div></div>
+<div class="card"><div class="pill" style="background:var(--al);width:40px;height:40px;font-size:20px">📦</div><div class="s" style="color:var(--t)">Metformina acaba em 5 dias</div></div>
+<div class="card"><div class="pill" style="background:var(--p);width:40px;height:40px;font-size:20px">📅</div><div class="s" style="color:var(--t)">Cardiologista amanhã 14:00</div></div>
+<div style="flex:1"></div><div class="btn" style="padding:14px;font-size:17px">📄 Relatório para o médico</div></div></div>
+
+<div><div class="lbl">5 · Novo remédio (periodicidade)</div><div class="ph" style="gap:7px">
+<div class="serif" style="font-size:22px;font-weight:700;color:var(--p)">Novo remédio</div>
+<div class="f" style="display:flex;gap:10px;align-items:center"><span style="font-size:26px">💊</span> Amoxicilina 500mg</div>
+<div class="s" style="font-weight:700">Primeiro horário</div><div class="f" style="font-size:22px;font-weight:700">08:00</div>
+<div class="s" style="font-weight:700">Repetir a cada</div><div class="seg"><span>4h</span><span>6h</span><span class="on">8h</span><span>12h</span><span>1x/dia</span></div>
+<div class="s" style="font-weight:700">Por quanto tempo?</div><div class="seg"><span>Contínuo</span><span class="on">7 dias</span></div>
+<div class="s" style="font-weight:700">Estoque</div><div class="f">21 comprimidos</div>
+<div class="card" style="padding:10px"><div class="s" style="color:var(--t)">🔔 Lembretes às <b>08:00 · 16:00 · 00:00</b><br><span style="color:#9A6400;font-weight:700">⚠️ 00:00 é de madrugada</span></div></div>
+<div class="btn" style="padding:14px;font-size:17px">Salvar</div></div></div>
+
+</div></body></html>
