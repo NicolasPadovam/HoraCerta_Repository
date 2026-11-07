@@ -2,84 +2,87 @@
 
 **Regras da GS:** no máximo 5 min, gravação horizontal em HD, alunos aparecendo e com voz própria (sem voz de IA), link público no YouTube, **pelo menos metade do tempo mostrando o software** e todos os integrantes falando.
 
-**Distribuição (sorteada):** A = **Nicolas** · B = **Vitor** · C = **Enzo**
+**Distribuição (sorteada):** Nicolas abre, Vitor demonstra, Enzo encerra.
 
 > Lembrete: o pitch vende a **ideia**. Não precisa estar 100% funcionando; o importante é mostrar o protótipo com segurança e citar as tecnologias de cada matéria.
 
 **Formato:**
-- **Nicolas** (abertura e problema) e **Enzo** (arquitetura e encerramento) falam para a câmera, com o slide ao lado ou atrás.
-- **Vitor** apresenta a demonstração com a tela do app gravada, de preferência no OBS com a webcam num canto.
+- **Nicolas** abre e apresenta o problema, falando para a câmera com o slide ao lado ou atrás.
+- **Vitor** conduz a demonstração com a tela do protótipo gravada (de preferência no OBS, com a webcam num canto) e apresenta a arquitetura.
+- **Enzo** faz o encerramento, também para a câmera.
+
+**Tom:** apresentação de produto, como um lançamento. As transições acontecem pela própria narrativa, sem "passo para fulano".
 
 | Tempo | Quem | Tela | Bloco |
 |---|---|---|---|
 | 0:00–0:20 | Nicolas | Slide 1 | Abertura |
-| 0:20–1:05 | Nicolas | Slides 2–3 | Problema e dados |
-| 1:05–1:30 | Nicolas | Slides 4–5 | Personas e concorrência |
-| 1:30–4:00 | Vitor | **Protótipo do app** (slides 6–8 de apoio) | Demonstração (2 min 30 s = 50%) |
-| 4:00–4:35 | Enzo | Slides 10–11 | Arquitetura e tecnologias |
-| 4:35–5:00 | Enzo (+ os três no fim) | Slide 12 | Conclusão |
+| 0:20–1:00 | Nicolas | Slides 2–3 | Problema e dados |
+| 1:00–1:20 | Nicolas | Slides 4–5 | Personas e concorrência |
+| 1:20–3:30 | Vitor | **Protótipo do app** (slides 6–8 de apoio) | Demonstração |
+| 3:30–4:05 | Vitor | Slides 10–11 | Arquitetura e tecnologias |
+| 4:05–5:00 | Enzo | Slide 12 | Encerramento |
+
+> Software e infraestrutura somam **2 min 45 s**, acima da metade exigida pela GS.
 
 ---
 
 ## 0:00–0:20 · Abertura (Nicolas, para a câmera)
-> "Oi, nós somos a equipe **HoraCerta**: eu sou o **Nicolas**, esse é o **Vitor** e esse é o **Enzo**. Vamos apresentar o **Hora Certa**: cada remédio na hora certa, cada família em paz."
+> "Nós somos a equipe **HoraCerta**: Nicolas, Vitor e Enzo. E este é o **Hora Certa**, o aplicativo que garante que cada remédio seja tomado na hora certa, e que cada família fique em paz."
 
-## 0:20–1:05 · Problema e dados (Nicolas)
+## 0:20–1:00 · Problema e dados (Nicolas)
 **Slide 2**
-> "Quem tem pai, mãe ou avó já se perguntou: *será que ela tomou o remédio da pressão?* O idoso toma vários remédios em horários diferentes, esquece uma dose, às vezes toma em dobro. E quem cuida trabalha o dia todo e não tem como saber sem ligar toda hora."
+> "Quem tem pai, mãe ou avó conhece esta pergunta: *será que ela tomou o remédio da pressão?* O idoso esquece doses ou toma em dobro, e a família, que trabalha o dia todo, não tem como saber."
 
 **Slide 3**
-> "E isso não é um caso isolado. O Brasil tem **32 milhões de pessoas com mais de 60 anos**, e **5,7 milhões moram sozinhas**. **93% dos idosos usam remédio contínuo**, e a OMS estima que **metade dos pacientes crônicos não segue o tratamento como foi prescrito**. Isso vira internação evitável e preocupação diária para a família."
+> "Esse não é um caso isolado. O Brasil tem **32 milhões de pessoas com mais de 60 anos**, e **5,7 milhões delas moram sozinhas**. **93% dos idosos usam medicamentos de uso contínuo**, e, segundo a Organização Mundial da Saúde, **metade dos pacientes crônicos não segue o tratamento como foi prescrito**. O resultado são internações evitáveis e preocupação diária."
 
-## 1:05–1:30 · Personas e concorrência (Nicolas)
+## 1:00–1:20 · Personas e concorrência (Nicolas)
 **Slide 4**
-> "Criamos o app pensando em duas pessoas: a **Dona Maria**, 78 anos, que mora sozinha e toma três remédios, e o filho dela, o **Carlos**, que cuida à distância."
+> "Pensamos na **Dona Maria**, 78 anos, que mora sozinha, e no filho dela, o **Carlos**, que cuida à distância."
 
 **Slide 5**
-> "Já existem alarmes e apps de lembrete, mas eles param no lembrete. Nenhum fecha o ciclo com a família pelo canal que o idoso já usa, que é o WhatsApp. Vou passar para o Vitor mostrar como funciona."
+> "As soluções que existem hoje param no lembrete. Nenhuma fecha o ciclo entre o idoso e a família, no canal que eles já usam todos os dias. É esse o espaço que o Hora Certa ocupa."
 
-## 1:30–4:00 · Demonstração (Vitor, tela do protótipo)
-> Gravem a tela do protótipo (Flutter ou Kotlin, o que estiver mais bonito). WhatsApp, agenda e Uber são simulados no MVP: mostrem a tela e digam "no MVP isso é simulado".
+## 1:20–3:30 · Demonstração (Vitor, tela do protótipo)
+> Gravem a tela do protótipo (Flutter ou Kotlin, o que estiver mais bonito). O texto conta **um dia da Dona Maria**: as funcionalidades aparecem dentro da história, não como lista. A coluna da direita indica a tela a mostrar enquanto se fala.
 
-**1:30 · Cadastro com periodicidade (app do cuidador, T6)**
-> "Aqui o Carlos cadastra a Metformina. Em vez de criar três alarmes, ele diz só uma coisa: **primeira dose às 8h, de 8 em 8 horas**. O app já mostra a prévia (8h, 16h e meia-noite) e avisa que meia-noite é de madrugada. Ele informa que tem 60 comprimidos, e o app calcula quantos dias o remédio dura."
+| Fala | Tela |
+|---|---|
+| "Vamos acompanhar um dia da Dona Maria. Tudo começa quando o Carlos cadastra os remédios da mãe. Em vez de criar um alarme para cada horário, ele informa apenas a primeira dose e a frequência: **Metformina, às oito da manhã, de oito em oito horas**. O Hora Certa calcula sozinho os horários e, com a quantidade de comprimidos em casa, já sabe por quantos dias o remédio vai durar." | T6 Cadastro |
+| "No celular da Dona Maria aparece só o que importa agora: o próximo remédio, a próxima consulta e botões grandes, com a emergência sempre ao alcance." | T1 Início |
+| "Quando chega a hora, o alarme toma a tela com a **foto da caixa**, o nome e a dose, porque quem reconhece a embalagem erra menos. Um toque em **Tomei** e pronto: a tela fica verde, o celular vibra e ela recebe um elogio. Se tocar sem querer, pode desfazer." | T2 Alerta → tela verde |
+| "Mas e se ela não responder? É aqui que o Hora Certa se diferencia. Dez minutos depois, ela recebe uma mensagem no WhatsApp. Se ainda assim não confirmar, meia hora depois do horário o Carlos é avisado, e no painel dele o alerta já vem com o botão para ligar para a mãe. O cuidador só é chamado quando realmente precisa." | Slide 7 → T4 Painel |
+| "À tarde, a Dona Maria tem cardiologista. A consulta já está na agenda dela e na do Carlos e, na hora de sair, um toque em **Pedir carro** abre o aplicativo de transporte com o endereço preenchido." | T3 Consulta |
+| "Quando o remédio está para acabar, os dois são avisados com cinco dias de antecedência. Antes da consulta, o Carlos gera um **relatório com a adesão do mês** para o médico ver como o tratamento realmente está sendo seguido. Tudo isso com um princípio claro: o Hora Certa organiza e lembra o que o médico prescreveu, e **nunca contraria a prescrição**." | T8 Estoque → T5 Relatório |
 
-**2:00 · Início do idoso (T1)**
-> "Esse é o celular da Dona Maria. Tela simples: letra grande, só o próximo remédio e três botões. O SOS fica sempre no canto."
+> No MVP, WhatsApp, agenda e transporte são simulados. Se a banca perguntar: "no MVP essas integrações são simuladas; em produção usam a API oficial do WhatsApp, convites de calendário e o link da Uber".
 
-**2:15 · Hora do remédio (T2)**
-> "Chegou a hora. O alarme mostra a **foto da caixa**, o nome e a dose. Ela toca em **Tomei**: tela verde, vibração e um elogio. Se tocou sem querer, pode **desfazer** por 10 segundos."
-
-**2:40 · Lembrete escalonado (slide 7 de apoio + painel T4)**
-> "E se ela não confirmar? Dez minutos depois, o app manda um WhatsApp para ela. Trinta minutos depois, avisa o Carlos. No painel dele aparece em terracota: *Losartana das 8h, atrasado 30 minutos*, com o botão **Ligar**. O Carlos só é acionado quando realmente precisa."
-
-**3:10 · Consulta e transporte (T3)**
-> "O Carlos marcou cardiologista para hoje às 14h. A consulta foi para a agenda dos dois, e no dia a Dona Maria toca em **Pedir carro**: a Uber abre com o endereço preenchido."
-
-**3:30 · Estoque, SOS e relatório (T8, T5)**
-> "Quando faltam 5 dias de remédio, os dois recebem um aviso. O SOS manda a localização para a família pelo WhatsApp. E antes da consulta o Carlos gera um **relatório em PDF** com a adesão do mês para mostrar ao médico."
-
-**3:50 · Fechamento da demo**
-> "Tudo isso segue uma regra: o app organiza e lembra o que o médico prescreveu, **nunca contraria a prescrição**. Passo para o Enzo."
-
-## 4:00–4:35 · Arquitetura e tecnologias (Enzo)
+## 3:30–4:05 · Arquitetura e tecnologias (Vitor)
 **Slide 10**
-> "Por trás disso, o app existe em duas versões: **Flutter**, para Android e iOS, e **Kotlin**, nativo para Android. Os dois conversam com **microsserviços em Java**: pessoas e vínculos, remédios e doses, alertas e consultas. Cada um roda em um contêiner **Docker**, publicado no **Azure**. Os dados ficam no **Oracle Database**, e é em **PL/SQL** que geramos as doses a partir da periodicidade e damos baixa no estoque."
+> "Para sustentar essa experiência, o Hora Certa foi desenvolvido em duas versões: **Flutter**, para Android e iOS, e **Kotlin**, nativo para Android. Os aplicativos se comunicam com **microsserviços em Java**, cada um em um contêiner **Docker** publicado no **Azure**. Os dados ficam no **Oracle Database**, onde rotinas em **PL/SQL** geram as doses a partir da periodicidade e controlam o estoque."
 
 **Slide 11**
-> "A gestão e os testes do projeto estão no **Azure DevOps**: board de tarefas, repositório, pipeline e planos de teste. No MVP, as integrações com WhatsApp, agenda e Uber são simuladas e estão prontas para entrar em produção."
+> "Todo o projeto é gerenciado e testado no **Azure DevOps**, com quadro de tarefas, repositório, pipeline e planos de teste."
 
-## 4:35–5:00 · Conclusão (Enzo, depois os três juntos)
+## 4:05–5:00 · Encerramento (Enzo, para a câmera)
 **Slide 12**
-> "O Hora Certa contribui para os **ODS 3, 10 e 11**. Os próximos passos são testar com idosos reais, formalizar a parceria com a Uber e ampliar para pessoas com deficiência e doenças crônicas."
-
-**Os três, para a câmera:**
-> Nicolas: "Porque ninguém precisa cuidar sozinho." · Vitor e Enzo: "Obrigado!"
+> "O Hora Certa nasceu de uma pergunta simples e está alinhado a três Objetivos de Desenvolvimento Sustentável da ONU."
+>
+> "Ao **ODS 3, Saúde e Bem-Estar**, porque ajuda o idoso a seguir o tratamento corretamente e reduz internações que poderiam ser evitadas."
+>
+> "Ao **ODS 10, Redução das Desigualdades**, porque foi desenhado para quem tem mais dificuldade com tecnologia: letra grande, poucos botões e o WhatsApp, que eles já conhecem."
+>
+> "E ao **ODS 11, Cidades e Comunidades Sustentáveis**, porque fortalece a rede de cuidado em volta de quem envelhece, conectando família, médico e transporte."
+>
+> "Os próximos passos são testar com idosos e cuidadores reais, firmar a parceria com a Uber e chegar a novos públicos, como pessoas com deficiência."
+>
+> "Porque cuidar de quem a gente ama não deveria depender de memória nem de sorte. **Hora Certa: ninguém precisa cuidar sozinho.**"
 
 ---
 
 ## Checklist antes de gravar
-- [ ] Gravar a demo com dados de exemplo: Maria, Losartana, Metformina, Sinvastatina, Cardiologista às 14h.
-- [ ] Ensaiar com cronômetro: a demo precisa de pelo menos 2 min 30 s.
+- [ ] Gravar a demo com os dados de exemplo: Maria, Losartana, Metformina, Sinvastatina, cardiologista às 14h.
+- [ ] Deixar as telas abertas na ordem da tabela da demo, para a narração não travar.
+- [ ] Ensaiar com cronômetro: a parte do Vitor tem que somar pelo menos 2 min 30 s.
 - [ ] Exportar em HD, subir no YouTube como **público** e testar o link deslogado.
 - [ ] O PDF dos slides e o link do vídeo vão num .ZIP na área de Software Projects Quality Assurance.
