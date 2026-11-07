@@ -8,8 +8,8 @@
 
 **Formato:**
 - **Nicolas** abre e apresenta o problema, falando para a câmera com o slide ao lado ou atrás.
-- **Vitor** conduz a demonstração com a tela do protótipo gravada (de preferência no OBS, com a webcam num canto) e apresenta a arquitetura.
-- **Enzo** faz o encerramento, também para a câmera.
+- **Vitor** conduz a demonstração com a tela do protótipo gravada (de preferência no OBS, com a webcam num canto).
+- **Enzo** apresenta a arquitetura e as tecnologias e faz o encerramento, para a câmera.
 
 **Tom:** apresentação de produto, como um lançamento. As transições acontecem pela própria narrativa, sem "passo para fulano".
 
@@ -19,7 +19,7 @@
 | 0:20–1:00 | Nicolas | Slides 2–3 | Problema e dados |
 | 1:00–1:20 | Nicolas | Slides 4–5 | Personas e concorrência |
 | 1:20–3:30 | Vitor | **Protótipo do app** (slides 6–8 de apoio) | Demonstração |
-| 3:30–4:05 | Vitor | Slides 10–11 | Arquitetura e tecnologias |
+| 3:30–4:05 | Enzo | Slides 10–11 | Arquitetura e tecnologias |
 | 4:05–5:00 | Enzo | Slide 12 | Encerramento |
 
 > Software e infraestrutura somam **2 min 45 s**, acima da metade exigida pela GS.
@@ -57,14 +57,14 @@
 
 > No MVP, WhatsApp, agenda e transporte são simulados. Se a banca perguntar: "no MVP essas integrações são simuladas; em produção usam a API oficial do WhatsApp, convites de calendário e o link da Uber".
 
-## 3:30–4:05 · Arquitetura e tecnologias (Vitor)
+## 3:30–4:05 · Arquitetura e tecnologias (Enzo, para a câmera)
 **Slide 10**
 > "Para sustentar essa experiência, o Hora Certa foi desenvolvido em duas versões: **Flutter**, para Android e iOS, e **Kotlin**, nativo para Android. Os aplicativos se comunicam com **microsserviços em Java**, cada um em um contêiner **Docker** publicado no **Azure**. Os dados ficam no **Oracle Database**, onde rotinas em **PL/SQL** geram as doses a partir da periodicidade e controlam o estoque."
 
 **Slide 11**
 > "Todo o projeto é gerenciado e testado no **Azure DevOps**, com quadro de tarefas, repositório, pipeline e planos de teste."
 
-## 4:05–5:00 · Encerramento (Enzo, para a câmera)
+## 4:05–5:00 · Encerramento (Enzo)
 **Slide 12**
 > "O Hora Certa nasceu de uma pergunta simples e está alinhado a três Objetivos de Desenvolvimento Sustentável da ONU."
 >
@@ -83,6 +83,6 @@
 ## Checklist antes de gravar
 - [ ] Gravar a demo com os dados de exemplo: Maria, Losartana, Metformina, Sinvastatina, cardiologista às 14h.
 - [ ] Deixar as telas abertas na ordem da tabela da demo, para a narração não travar.
-- [ ] Ensaiar com cronômetro: a parte do Vitor tem que somar pelo menos 2 min 30 s.
+- [ ] Ensaiar com cronômetro: demo (Vitor) + arquitetura (Enzo) precisam somar pelo menos 2 min 30 s.
 - [ ] Exportar em HD, subir no YouTube como **público** e testar o link deslogado.
 - [ ] O PDF dos slides e o link do vídeo vão num .ZIP na área de Software Projects Quality Assurance.
