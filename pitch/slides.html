@@ -145,7 +145,7 @@ tr.us td{background:#EEF7F1;font-weight:700}
   </div>
   <p class="claim">Cada remédio na hora certa. Cada família em paz.</p>
   <div>
-    <p style="font-size:20px;color:#DCE6F7;margin-bottom:16px">Equipe [nome da equipe] — Global Solution 2026.2, CitizenTech</p>
+    <p style="font-size:20px;color:#DCE6F7;margin-bottom:16px">Equipe HoraCerta — Global Solution 2026.2, CitizenTech</p>
     <div class="team">
       <div><b>Enzo Biloschycki Magalhães Cesar</b><span>RM 556736</span></div>
       <div><b>Vitor Portela Fantinato</b><span>RM 554540</span></div>
@@ -164,7 +164,7 @@ tr.us td{background:#EEF7F1;font-weight:700}
       <p>Dar autonomia ao idoso e tranquilidade à família com um app que lembra remédios e consultas, confirma cada dose com um toque e só aciona o cuidador quando algo foge do normal.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;flex:none">
-      <span class="tag ok"><svg class="ico"><use href="#i-check"/></svg>Tomado às 8h02</span>
+      <span class="tag ok" style="white-space:nowrap;flex:none"><svg class="ico"><use href="#i-check"/></svg>Tomado às 8h02</span>
       <span class="tag prox"><svg class="ico"><use href="#i-clock"/></svg>Próximo: 14h</span>
       <span class="tag atr"><svg class="ico"><use href="#i-warn"/></svg>Atrasado 30 min</span>
     </div>
@@ -309,18 +309,23 @@ tr.us td{background:#EEF7F1;font-weight:700}
   <h2>Arquitetura da solução</h2>
   <div class="arch" style="margin-top:24px">
     <div class="col">
-      <div class="node"><b>App do idoso</b><span>Alarmes locais, Tomei, SOS</span></div>
-      <div class="node"><b>App do cuidador</b><span>Painel, cadastros, relatório</span></div>
+      <div class="node"><b>App Flutter</b><span>Android e iOS, idoso e cuidador</span></div>
+      <div class="node"><b>App Kotlin</b><span>Android nativo</span></div>
+      <div class="node" style="border-style:dashed"><b>Integrações</b><span>WhatsApp, agendas .ics, Uber e push (simuladas no MVP)</span></div>
     </div>
     <div class="mid"><div class="wire" style="flex:1"></div>
-      <div class="node core" style="flex:4"><b>API Hora Certa</b><span>Regras de agendamento, escalonamento de alertas, geração de doses, .ics e PDF</span>
-        <div style="margin-top:14px;border-top:2px solid rgba(255,255,255,.3);padding-top:12px"><b style="font-size:19px">Banco de dados</b><span>Pessoas, vínculos, remédios, doses, consultas</span></div></div>
+      <div class="node core" style="flex:5"><b>Microsserviços Java</b><span>API REST, cada um em seu contêiner Docker, publicados no Azure</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px">
+          <div style="border:2px solid rgba(255,255,255,.35);border-radius:16px;padding:8px 10px;font-size:15px">Pessoas e vínculos</div>
+          <div style="border:2px solid rgba(255,255,255,.35);border-radius:16px;padding:8px 10px;font-size:15px">Remédios e doses</div>
+          <div style="border:2px solid rgba(255,255,255,.35);border-radius:16px;padding:8px 10px;font-size:15px">Alertas e escalonamento</div>
+          <div style="border:2px solid rgba(255,255,255,.35);border-radius:16px;padding:8px 10px;font-size:15px">Consultas</div>
+        </div></div>
       <div class="wire" style="flex:1"></div></div>
     <div class="col">
-      <div class="node"><b>WhatsApp Business API</b><span>Mensagens de lembrete e alerta</span></div>
-      <div class="node"><b>Agendas (.ics)</b><span>Google, Outlook, Apple</span></div>
-      <div class="node"><b>Uber (deep link)</b><span>Destino da consulta preenchido</span></div>
-      <div class="node"><b>Notificações push</b><span>Firebase Cloud Messaging</span></div>
+      <div class="node"><b>Oracle Database</b><span>Pessoas, remédios, doses, consultas</span></div>
+      <div class="node"><b>PL/SQL</b><span>Procedures que geram as doses pela periodicidade e dão baixa no estoque</span></div>
+      <div class="node"><b>Azure DevOps</b><span>Board, repositório, pipeline e planos de teste</span></div>
     </div>
   </div>
 </section>
@@ -329,12 +334,17 @@ tr.us td{background:#EEF7F1;font-weight:700}
 <section class="slide" data-n="11">
   <h2>Tecnologias empregadas</h2>
   <div class="tech" style="margin-top:32px">
-    <div class="f"><h3>Mobile</h3><ul><li>[Flutter / Dart]</li><li>[Kotlin, Android]</li><li>Notificações locais</li></ul></div>
-    <div class="f"><h3>Back-end</h3><ul><li>[Java + Spring Boot]</li><li>API REST</li><li>[Banco: Oracle]</li></ul></div>
-    <div class="f"><h3>Integrações</h3><ul><li>WhatsApp Business API</li><li>iCalendar (.ics)</li><li>Uber deep link</li><li>Firebase Cloud Messaging</li></ul></div>
-    <div class="f"><h3>Gestão e testes</h3><ul><li>Git e GitHub</li><li>[JUnit, testes de widget]</li><li>[Ferramenta de gestão]</li><li>Design no Claude</li></ul></div>
+    <div class="f"><h3>Mobile</h3><ul><li>Flutter e Dart</li><li>Kotlin, Android nativo</li><li>Notificações locais</li></ul></div>
+    <div class="f"><h3>Back-end</h3><ul><li>Microsserviços Java</li><li>API REST</li><li>Docker</li></ul></div>
+    <div class="f"><h3>Dados</h3><ul><li>Oracle Database</li><li>PL/SQL: procedures e triggers</li></ul></div>
+    <div class="f"><h3>Nuvem, gestão e testes</h3><ul><li>Microsoft Azure</li><li>Azure DevOps: Boards, Repos, Pipelines</li><li>Azure Test Plans</li></ul></div>
   </div>
-  <p class="lead" style="font-size:20px;margin-top:22px">Itens entre colchetes: confirmar com o grupo antes da entrega.</p>
+  <div class="box" style="margin-top:24px;display:flex;gap:40px;align-items:center;padding:20px 28px">
+    <span class="tag ok" style="white-space:nowrap;flex:none"><svg class="ico"><use href="#i-check"/></svg>No MVP</span>
+    <p style="font-size:19px">Protótipo navegável das telas; API, banco e Docker em construção.</p>
+    <span class="tag prox" style="flex:none"><svg class="ico"><use href="#i-clock"/></svg>Simulado</span>
+    <p style="font-size:19px">WhatsApp, agendas e Uber, prontos para integrar em produção.</p>
+  </div>
 </section>
 
 <!-- 12 CONCLUSÃO -->
