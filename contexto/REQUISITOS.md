@@ -28,10 +28,14 @@
 
 ### RF03 — Lembrete escalonado de remédio
 1. **No horário:** notificação no app do idoso (som + tela cheia) com botão **"Tomei"**.
-2. **+15 min sem confirmação:** mensagem de WhatsApp para o idoso.
-3. **+15 min (30 min total) sem confirmação:** mensagem de WhatsApp para o(s) cuidador(es).
+2. **+10 min sem confirmação:** mensagem de WhatsApp para o idoso.
+3. **+30 min do horário sem confirmação:** mensagem de WhatsApp para o(s) cuidador(es).
 4. O cuidador pode **ligar para o idoso com 1 toque** (abre ligação do WhatsApp/telefone).
-- Confirmação registra data/hora e quem confirmou. Tempos de escalonamento configuráveis (padrão 15 + 15 min).
+- Confirmação registra data/hora e quem confirmou. Tempos de escalonamento configuráveis pela família (padrão +10 min e +30 min).
+
+### RF03.1 — Resposta ao "Tomei" e adiamento
+- "Tomei" → tela verde "Muito bem, Maria!" + vibração; botão **Desfazer** visível por **10 s**.
+- "Lembrar em 10 min" → "Eu aviso de novo às 08:10" + atalho "Já tomei agora".
 
 ### RF04 — Agendamento de consultas
 - Campos: especialidade/médico, data, hora, endereço, observações (ex.: "levar exames").

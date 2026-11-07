@@ -1,21 +1,23 @@
-# Hora Certa
+# Hora Certa — Repositório de contexto (core)
 
-App de lembrete de remédios e consultas para idosos, conectando o idoso ao cuidador/familiar.
-Projeto da disciplina CitizenTech.
+App que conecta o **idoso** ao **cuidador/familiar**: lembra remédios e consultas, confirma a dose ("Tomei"), avisa o cuidador pelo WhatsApp quando algo não é confirmado, manda consultas para a agenda (.ics) e facilita o transporte (Uber).
+**Princípio:** o app organiza e lembra a prescrição médica — nunca a contraria.
 
-- `contexto/` — documentação independente de linguagem (use como contexto para implementar em Flutter, Kotlin, Java...)
-  - `VISAO.md` — problema, personas, proposta de valor
-  - `REQUISITOS.md` — requisitos funcionais e não funcionais
-  - `MODELO-DADOS.md` — entidades e regras
-  - `TELAS.md` — telas e fluxos
-- `features/` — backlog de features (MVP, futuro, descartadas)
-- `decisoes/` — registro das decisões tomadas (sessões grill-me)
-- `pitch/Hora-Certa-Pitch.pptx` — slides do pitch (versão 1, sem design final)
+Este repositório **não contém código do app**. Ele é a fonte da verdade (produto + design) usada pelos projetos em **Flutter**, **Android/Kotlin** e **Java**.
 
-## Status
-- ✅ Parte 1 — Funcionalidades (back) definidas
-- ⏳ Parte 2 — Design (front) e skill de design padrão
+## Estrutura
+| Pasta | Conteúdo |
+|---|---|
+| `contexto/` | Produto: `VISAO.md`, `REQUISITOS.md`, `MODELO-DADOS.md`, `TELAS.md` |
+| `design/` | Identidade visual oficial: `DESIGN.md` (regras), `tokens.json` (valores), `hora-certa-handoff.md` (telas detalhadas), `referencia/` (HTML navegável) |
+| `features/` | Backlog: MVP, futuro, descartadas |
+| `decisoes/` | Registro das decisões (sessões grill-me) |
+| `.claude/skills/aplicar-identidade-hora-certa/` | Skill que aplica a identidade visual em projetos Flutter, Android (Compose ou XML) e Java |
+| `pitch/` | Slides do pitch (v1, ainda com o visual antigo) |
 
-## Como reutilizar em outra matéria
-Envie os arquivos de `contexto/` para a IA/equipe e peça, por exemplo:
-"Implemente o MVP descrito nestes documentos em Flutter."
+## Como aplicar o design num projeto (Flutter / Kotlin / Java)
+1. Copie a pasta `.claude/skills/aplicar-identidade-hora-certa/` para `.claude/skills/` do projeto (ou para `~/.claude/skills/` para usar em todos).
+2. No Claude Code, dentro do projeto, peça: **"aplique a identidade visual do Hora Certa"**.
+3. A skill detecta a plataforma, cria o tema a partir de `design/tokens.json`, cria os componentes base e restiliza as telas sem mexer na lógica, e no fim lista o que mudou e o que ainda viola as regras.
+
+> Mudou uma cor ou tamanho? Altere **só** `design/tokens.json` e `design/DESIGN.md`; depois rode a skill de novo nos projetos.

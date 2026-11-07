@@ -1,5 +1,7 @@
 # Hora Certa — Telas e Fluxos
 
+> Visual oficial: `design/DESIGN.md` (paleta azul). Especificação detalhada de cada tela: `design/hora-certa-handoff.md`.
+
 > Regra fixa: fonte grande, alto contraste, **no máximo 3 botões por tela**, linguagem simples.
 
 ## App do idoso (Dona Maria)
@@ -9,7 +11,7 @@
 - Próximo remédio em destaque (nome, dose, horário).
 - Próxima consulta (se houver).
 - Botões: **[Meus remédios] [Minhas consultas] [Ligar para família]**
-- Botão **[🆘 SOS]** fixo no canto (exceção à regra de 3 botões, por segurança).
+- Botão **SOS** fixo no **canto superior direito** (exceção à regra de 3 botões). Toque → "Avisar sua família agora?" → "Sua família foi avisada" + [Ligar 192].
 
 ### T2 — Alerta de remédio (tela cheia)
 - "Hora do remédio! Losartana — 1 comprimido"
@@ -19,6 +21,10 @@
 ### T3 — Consulta do dia
 - "Hoje às 14h — Cardiologista — Rua X, 123"
 - Botões: **[🚗 Pedir Uber] [Ver endereço]**
+
+### T8 — Aviso de estoque
+- "Losartana: restam 5 dias", barra de estoque.
+- Botões: **[Comprei mais]** (seletor de quantidade +/- 10 → "Estoque atualizado!") **[Lembrar amanhã]**
 
 ## App do cuidador (Carlos)
 
@@ -42,13 +48,16 @@
 ### T7 — Cadastro de consulta
 - Especialidade, data/hora, endereço, observação. Botão **[Salvar e enviar para agendas]**.
 
+### T9 — Estoque
+- Lista de remédios com barra e "dá para N dias"; item em alerta (≤ 5 dias) com [Comprei mais] e seletor de quantidade.
+
 ## Fluxos principais
 
 ### F1 — Lembrete escalonado
 ```
 08:00 Notificação no app da Maria ── Tomei? ── sim ──► registra TOMADA ✅
                                         │ não
-08:15 WhatsApp para Maria ─────────── Tomei? ── sim ──► registra TOMADA ✅
+08:10 WhatsApp para Maria ─────────── Tomei? ── sim ──► registra TOMADA ✅
                                         │ não
 08:30 WhatsApp para Carlos: "Sua mãe ainda não confirmou a Losartana das 08h"
                                         │
@@ -77,3 +86,8 @@ Maria toca [🆘 SOS] ──► confirma ──► WhatsApp com localização pa
 ```
 "Tomei" ──► estoque −1 ──► faltam ≤ 5 dias? ──► aviso para Maria e Carlos ──► [Comprei mais]
 ```
+
+## Dados de exemplo (usar em protótipos e telas)
+- **Maria** (mãe, 78): Losartana 50 mg (a cada 12h), Metformina 850 mg (a cada 8h), Sinvastatina 20 mg (1x ao dia).
+- Consulta: Cardiologista hoje às 14h, Rua X, 123.
+- **Seu Antônio**: segunda pessoa de exemplo no painel do cuidador.

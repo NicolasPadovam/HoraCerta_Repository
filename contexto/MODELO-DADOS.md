@@ -92,5 +92,5 @@ PessoaCuidada 1──N Consulta
 - **Relatório:** calculado a partir das Doses do período (sem entidade própria).
 - **Geração de doses:** tipo INTERVALO → horários = primeiroHorario + k × intervaloHoras (k = 0, 1, 2… enquanto < 24h); tipo HORARIOS_FIXOS → a própria lista. Uma Dose é criada para cada horário em cada dia aplicável, até dataFim ou duracaoDias.
 - Alterar o Agendamento recalcula só as Doses futuras com status `PENDENTE`.
-- Escalonamento: `PENDENTE` → (+15 min) nivelAlerta 1 → (+15 min) nivelAlerta 2 e status `NAO_CONFIRMADA` se não houver confirmação.
+- Escalonamento: `PENDENTE` → (+10 min) nivelAlerta 1 → (+30 min do horário) nivelAlerta 2 e status `NAO_CONFIRMADA` se não houver confirmação.
 - Só cuidadores com Vinculo `ATIVO` recebem alertas e veem dados.
