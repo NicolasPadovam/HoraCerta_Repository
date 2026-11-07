@@ -13,7 +13,7 @@ Este repositório **não contém código do app**. Ele é a fonte da verdade (pr
 | `features/` | Backlog: MVP, futuro, descartadas |
 | `decisoes/` | Registro das decisões (sessões grill-me) |
 | `.claude/skills/aplicar-identidade-hora-certa/` | Skill que aplica a identidade visual em projetos Flutter, Android (Compose ou XML) e Java |
-| `pitch/` | Slides do pitch (v1, ainda com o visual antigo) |
+| `pitch/` | Slides do pitch (`slides.html` / PDF) e roteiro do vídeo |
 
 ## Como aplicar o design num projeto (Flutter / Kotlin / Java)
 1. Copie a pasta `.claude/skills/aplicar-identidade-hora-certa/` para `.claude/skills/` do projeto (ou para `~/.claude/skills/` para usar em todos).
