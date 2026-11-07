@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Hora Certa — Pitch</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --azul:#1D4F9F; --nevoa-tint:#E4ECF8; --linha:#BBCDEC; --fundo:#F5F8FD; --borda:#D9E2F1;
+  --tinta:#1B2433; --apoio:#4A5568; --verde:#1B7F45; --verde-esc:#145C33; --verde-tint:#DDF1E4;
+  --ambar:#F5B335; --ambar-tint:#FDE9BA; --terra:#B8321F; --terra-esc:#8E2414; --terra-tint:#F9DCD6;
+  --h:'Nunito',sans-serif; --b:'Atkinson Hyperlegible',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#C9D3E3}
+body{font-family:var(--b);color:var(--tinta);display:flex;flex-direction:column;align-items:center;gap:32px;padding:32px 0}
+.slide{width:1280px;height:720px;background:var(--fundo);position:relative;overflow:hidden;padding:64px 80px 56px;display:flex;flex-direction:column;page-break-after:always;break-after:page}
+.slide.dark{background:var(--azul);color:#fff}
+h1,h2,h3{font-family:var(--h);font-weight:900;letter-spacing:-.01em}
+h2{font-size:48px;line-height:1.08;max-width:15em;color:var(--tinta)}
+.dark h2{color:#fff}
+h3{font-size:26px;font-weight:800;line-height:1.2}
+p,li{font-size:22px;line-height:1.45}
+.lead{font-size:24px;color:var(--apoio);max-width:40em;margin-top:16px}
+.dark .lead{color:#DCE6F7}
+.muted{color:var(--apoio)}
+.src{position:absolute;left:80px;bottom:26px;font-size:15px;color:var(--apoio);max-width:980px}
+/* relógio de progresso: o ponteiro avança a cada slide e termina no ✓ */
+.dial{position:absolute;top:40px;right:56px;width:64px;height:64px}
+.dial .n{position:absolute;top:70px;right:0;width:64px;text-align:center;font-size:15px;color:var(--apoio);font-weight:700}
+.dark .dial .n{color:#DCE6F7}
+.body{flex:1;display:flex;gap:48px;margin-top:40px;min-height:0}
+.box{background:#fff;border:3px solid var(--borda);border-radius:32px;padding:28px 32px}
+.tag{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 16px;font-weight:700;font-size:18px}
+.tag.ok{background:var(--verde-tint);color:var(--verde-esc)}.tag.prox{background:var(--ambar-tint);color:var(--tinta)}.tag.atr{background:var(--terra-tint);color:var(--terra-esc)}
+.ico{width:1em;height:1em;flex:none}
+
+/* capa */
+.cover{justify-content:space-between}
+.logo{display:flex;align-items:center;gap:28px}
+.logo h1{font-size:120px;line-height:1;color:#fff}
+.cover .claim{font-family:var(--h);font-weight:800;font-size:44px;line-height:1.15;color:#fff;max-width:16em}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:3px solid rgba(255,255,255,.25);padding-top:24px}
+.team b{display:block;font-size:22px}.team span{font-size:18px;color:#DCE6F7}
+
+/* números */
+.stats{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:24px;flex:1}
+.stat{background:#fff;border:3px solid var(--borda);border-radius:28px;padding:24px 28px;display:flex;flex-direction:column;justify-content:flex-end}
+.stat .v{font-family:var(--h);font-weight:900;font-size:64px;line-height:1;color:var(--azul)}
+.stat .l{font-size:19px;margin-top:10px;color:var(--tinta)}
+.stat.big{grid-row:span 2;background:var(--azul);border-color:var(--azul)}
+.stat.big .v{font-size:92px;white-space:nowrap;color:#fff}.stat.big .l{color:#fff;font-size:24px}
+.stat.warn .v{color:var(--terra)}
+
+/* persona */
+.persona{flex:1;display:flex;flex-direction:column;gap:16px}
+.face{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--h);font-weight:900;font-size:40px;color:#fff}
+.quote{font-family:var(--h);font-weight:800;font-size:30px;line-height:1.25;color:var(--azul)}
+
+/* tabela benchmarking */
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:19px;background:#fff;border:3px solid var(--borda);border-radius:28px;overflow:hidden}
+th,td{padding:14px 18px;text-align:left;border-bottom:2px solid #E6ECF6}
+th{font-family:var(--h);font-weight:800;font-size:19px;background:var(--nevoa-tint)}
+tr:last-child td{border-bottom:none}
+td.c{text-align:center}
+tr.us td{background:#EEF7F1;font-weight:700}
+.y{color:var(--verde-esc);font-weight:700}.n{color:var(--apoio)}.p{color:#7A5A00;font-weight:700}
+
+/* escopo */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1}
+.f{background:#fff;border:3px solid var(--borda);border-radius:28px;padding:22px 24px}
+.f h3{font-size:23px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.f p{font-size:18px;color:var(--apoio);line-height:1.4}
+.f.key{border-color:var(--azul);background:var(--nevoa-tint)}
+
+/* escalonamento */
+.esc{display:flex;flex-direction:column;gap:14px;flex:1.2}
+.step{display:flex;align-items:center;gap:22px;border-radius:24px;padding:18px 26px}
+.step .t{font-family:var(--h);font-weight:900;font-size:40px;min-width:130px}
+.step b{font-size:23px;display:block}.step span{font-size:18px}
+.s1{background:var(--azul);color:#fff}.s2{background:var(--ambar);color:var(--tinta)}.s3{background:var(--terra);color:#fff}.s4{background:#fff;border:3px solid var(--verde);color:var(--tinta)}
+
+/* celulares */
+.phones{display:flex;gap:40px;justify-content:center;align-items:flex-start;flex:1}
+.phone{width:260px;height:520px;border-radius:40px;border:10px solid var(--tinta);background:var(--fundo);overflow:hidden;display:flex;flex-direction:column;padding:18px 16px;gap:10px;position:relative}
+.cap{text-align:center;font-weight:700;font-size:18px;margin-top:12px;color:var(--apoio)}
+.ph-top{display:flex;justify-content:space-between;align-items:center}
+.sos{background:var(--terra);color:#fff;border-radius:16px;font-weight:700;font-size:15px;padding:8px 10px;display:flex;align-items:center;gap:4px}
+.ph-h{font-family:var(--h);font-weight:900;font-size:26px;line-height:1.1}
+.card{background:#fff;border:3px solid var(--borda);border-radius:24px;padding:12px 14px}
+.btn{border-radius:20px;font-weight:700;font-size:19px;padding:14px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn.g{background:var(--verde);color:#fff;box-shadow:0 6px 0 var(--verde-esc);font-size:26px;padding:22px}
+.btn.o{background:#fff;color:var(--azul);border:3px solid var(--azul)}
+.btn.k{background:var(--tinta);color:#fff}
+.box-img{width:96px;height:96px;border-radius:24px;background:#fff;border:3px solid var(--borda);margin:0 auto;display:flex;align-items:center;justify-content:center}
+.bar{display:flex;gap:5px}.bar i{flex:1;height:14px;border-radius:7px}
+
+/* arquitetura */
+.arch{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:0;align-items:center;flex:1;margin-top:0!important}
+.col{display:flex;flex-direction:column;gap:16px}
+.node{background:#fff;border:3px solid var(--borda);border-radius:24px;padding:16px 20px}
+.node b{font-family:var(--h);font-weight:800;font-size:21px;display:block}.node span{font-size:16px;color:var(--apoio)}
+.node.core{background:var(--azul);border-color:var(--azul);color:#fff;padding:26px}
+.node.core span{color:#DCE6F7}.node.core b{font-size:26px}
+.wire{height:3px;background:var(--linha);margin:0 18px}
+.mid{display:flex;align-items:center}
+
+/* tecnologias */
+.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+.tech .f h3{font-size:21px}
+.tech ul{list-style:none}.tech li{font-size:18px;line-height:1.55}
+
+/* fechamento */
+.close-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;flex:1;align-items:end}
+.ods{display:flex;gap:16px}
+.od{border:3px solid rgba(255,255,255,.35);border-radius:24px;padding:14px 18px;color:#fff}
+.od b{font-family:var(--h);font-weight:900;font-size:30px;display:block}
+.od span{font-size:16px;color:#DCE6F7}
+.next li{color:#fff;font-size:20px;margin-bottom:8px}
+@media print{html,body{background:none;padding:0;gap:0}.slide{margin:0}}
+@page{size:1280px 720px;margin:0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l10 18H2z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M12 10v5M12 18v.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-pill" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-35 12 12)" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M9.5 8.5l5 7" stroke="currentColor" stroke-width="2.5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 19l1.4-4A8 8 0 1 1 9 18.6z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4zM4 16v3M20 16v3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="8" cy="13" r="1" fill="currentColor"/><circle cx="16" cy="13" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4M12 11v10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- 1 CAPA -->
+<section class="slide dark cover" data-n="1">
+  <div class="logo">
+    <svg width="132" height="132" viewBox="0 0 132 132"><rect width="132" height="132" rx="34" fill="#fff"/><circle cx="66" cy="66" r="44" fill="#fff" stroke="#1D4F9F" stroke-width="8"/><path d="M66 28v8M66 96v8M28 66h8M96 66h8" stroke="#1D4F9F" stroke-width="6" stroke-linecap="round"/><path d="M46 67l14 14 28-29" fill="none" stroke="#1B7F45" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>Hora Certa</h1>
+  </div>
+  <p class="claim">Cada remédio na hora certa. Cada família em paz.</p>
+  <div>
+    <p style="font-size:20px;color:#DCE6F7;margin-bottom:16px">Equipe [nome da equipe] — Global Solution 2026.2, CitizenTech</p>
+    <div class="team">
+      <div><b>[Integrante 1]</b><span>RM [00000]</span></div>
+      <div><b>[Integrante 2]</b><span>RM [00000]</span></div>
+      <div><b>[Integrante 3]</b><span>RM [00000]</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 PROBLEMA / OBJETIVO -->
+<section class="slide" data-n="2">
+  <h2>"Será que a mãe tomou o remédio da pressão?"</h2>
+  <p class="lead">Milhões de famílias fazem essa pergunta todos os dias. Idosos tomam vários remédios em horários diferentes, esquecem doses ou tomam em dobro, e quem cuida não tem como saber sem ligar toda hora.</p>
+  <div class="body" style="align-items:flex-end">
+    <div class="box" style="flex:1;border-color:var(--azul)">
+      <h3 style="color:var(--azul);margin-bottom:10px">Objetivo do projeto</h3>
+      <p>Dar autonomia ao idoso e tranquilidade à família com um app que lembra remédios e consultas, confirma cada dose com um toque e só aciona o cuidador quando algo foge do normal.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;flex:none">
+      <span class="tag ok"><svg class="ico"><use href="#i-check"/></svg>Tomado às 8h02</span>
+      <span class="tag prox"><svg class="ico"><use href="#i-clock"/></svg>Próximo: 14h</span>
+      <span class="tag atr"><svg class="ico"><use href="#i-warn"/></svg>Atrasado 30 min</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 OPORTUNIDADE -->
+<section class="slide" data-n="3">
+  <h2>Um problema do tamanho do Brasil que envelhece</h2>
+  <div class="stats" style="margin-top:32px">
+    <div class="stat big"><div class="v">32,1 mi</div><div class="l">brasileiros com 60 anos ou mais, 15,6% da população</div></div>
+    <div class="stat"><div class="v">93%</div><div class="l">dos idosos usam ao menos um remédio de uso contínuo</div></div>
+    <div class="stat warn"><div class="v">~50%</div><div class="l">dos pacientes crônicos não seguem o tratamento como prescrito</div></div>
+    <div class="stat"><div class="v">5,7 mi</div><div class="l">idosos moram sozinhos</div></div>
+    <div class="stat"><div class="v">18%</div><div class="l">dos idosos tomam 5 ou mais remédios por dia</div></div>
+  </div>
+  <p class="src" style="position:static;margin-top:16px">Fontes: IBGE, Censo 2022 · PNAUM, Revista de Saúde Pública (2016) · OMS, Adherence to Long-Term Therapies (2003)</p>
+</section>
+
+<!-- 4 PERSONAS -->
+<section class="slide" data-n="4">
+  <h2>Para quem criamos</h2>
+  <div class="body">
+    <div class="persona box">
+      <div style="display:flex;gap:20px;align-items:center"><div class="face" style="background:var(--verde)">M</div><div><h3>Dona Maria, 78</h3><p class="muted">Hipertensa e diabética, mora sozinha</p></div></div>
+      <p>Toma Losartana, Metformina e Sinvastatina em horários diferentes. Usa WhatsApp, mas se perde em apps cheios de botões.</p>
+      <p class="quote" style="margin-top:auto">"Às vezes não lembro se já tomei o da pressão."</p>
+    </div>
+    <div class="persona box">
+      <div style="display:flex;gap:20px;align-items:center"><div class="face" style="background:var(--azul)">C</div><div><h3>Carlos, 45</h3><p class="muted">Filho, trabalha o dia todo</p></div></div>
+      <p>Cuida da mãe à distância. Não quer controlar cada passo, só precisa saber quando algo não está certo.</p>
+      <p class="quote" style="margin-top:auto">"Queria estar perto, mas não consigo ligar toda hora."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 BENCHMARKING -->
+<section class="slide" data-n="5">
+  <h2>O que já existe e o que falta</h2>
+  <div style="margin-top:32px">
+  <table>
+    <tr><th>Solução</th><th class="c">Lembrete de remédio</th><th class="c">Avisa o cuidador</th><th class="c">Via WhatsApp</th><th class="c">Consulta + transporte</th><th class="c">Feito para idoso</th></tr>
+    <tr><td>Alarme do celular</td><td class="c y">Sim</td><td class="c n">Não</td><td class="c n">Não</td><td class="c n">Não</td><td class="c n">Não</td></tr>
+    <tr><td>Porta-comprimidos semanal</td><td class="c n">Não</td><td class="c n">Não</td><td class="c n">Não</td><td class="c n">Não</td><td class="c p">Parcial</td></tr>
+    <tr><td>Medisafe</td><td class="c y">Sim</td><td class="c p">Parcial</td><td class="c n">Não</td><td class="c n">Não</td><td class="c n">Não</td></tr>
+    <tr><td>MyTherapy</td><td class="c y">Sim</td><td class="c n">Não</td><td class="c n">Não</td><td class="c p">Parcial</td><td class="c n">Não</td></tr>
+    <tr class="us"><td>Hora Certa</td><td class="c y">Sim</td><td class="c y">Sim, escalonado</td><td class="c y">Sim</td><td class="c y">Sim</td><td class="c y">Sim</td></tr>
+  </table>
+  </div>
+  <p class="lead" style="margin-top:22px;font-size:21px">Nosso diferencial não é lembrar: é fechar o ciclo entre o idoso e a família, no canal que eles já usam.</p>
+</section>
+
+<!-- 6 ESCOPO -->
+<section class="slide" data-n="6">
+  <h2>O que o app faz</h2>
+  <div class="feat" style="margin-top:32px">
+    <div class="f key"><h3><svg class="ico" style="color:var(--azul)"><use href="#i-repeat"/></svg>Periodicidade</h3><p>"Às 8h, de 8 em 8 horas": um remédio, uma configuração, todos os alarmes gerados.</p></div>
+    <div class="f key"><h3><svg class="ico" style="color:var(--azul)"><use href="#i-chat"/></svg>Lembrete escalonado</h3><p>App, depois WhatsApp do idoso, depois WhatsApp do cuidador, com ligação em 1 toque.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--verde)"><use href="#i-check"/></svg>Botão Tomei</h3><p>Confirma a dose com um toque, com elogio e opção de desfazer por 10 segundos.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--azul)"><use href="#i-cal"/></svg>Consultas</h3><p>Vão para a agenda do idoso e do cuidador (.ics), com lembretes 1 dia e 2 horas antes.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--tinta)"><use href="#i-car"/></svg>Pedir carro</h3><p>Abre a Uber com o endereço da consulta já preenchido.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:#7A5A00"><use href="#i-box"/></svg>Estoque</h3><p>Desconta a cada dose e avisa a família quando faltam 5 dias.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--terra)"><use href="#i-warn"/></svg>SOS</h3><p>Envia a localização para a família pelo WhatsApp e mostra o atalho para o 192.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--azul)"><use href="#i-doc"/></svg>Relatório ao médico</h3><p>PDF com a adesão dos últimos 30 dias, lembrado na véspera da consulta.</p></div>
+    <div class="f"><h3><svg class="ico" style="color:var(--azul)"><use href="#i-pill"/></svg>Foto do remédio</h3><p>Imagem da caixa em cada alerta: quem reconhece a embalagem erra menos.</p></div>
+  </div>
+</section>
+
+<!-- 7 COMO FUNCIONA -->
+<section class="slide" data-n="7">
+  <h2>O cuidador só é chamado quando precisa</h2>
+  <div class="body">
+    <div class="esc">
+      <div class="step s1"><div class="t">08:00</div><div><b>Alarme no app da Dona Maria</b><span>Foto do remédio e botão Tomei grande</span></div></div>
+      <div class="step s2"><div class="t">08:10</div><div><b>WhatsApp para a Dona Maria</b><span>Se ainda não confirmou</span></div></div>
+      <div class="step s3"><div class="t">08:30</div><div><b>WhatsApp para o Carlos</b><span>"Sua mãe ainda não confirmou a Losartana das 8h"</span></div></div>
+      <div class="step s4"><div class="t" style="color:var(--verde)"><svg class="ico"><use href="#i-phone"/></svg></div><div><b>Carlos liga com 1 toque</b><span>Ao confirmar, o ciclo para e o histórico atualiza para os dois</span></div></div>
+    </div>
+    <div style="flex:.8;display:flex;flex-direction:column;gap:20px;justify-content:center">
+      <div class="box"><h3 style="margin-bottom:8px">A cor sobe com a urgência</h3><p class="muted" style="font-size:19px">Azul na hora, âmbar quando atrasa, terracota quando a família precisa agir. Cada etapa também tem ícone e palavra.</p></div>
+      <div class="box"><h3 style="margin-bottom:8px">A família ajusta os tempos</h3><p class="muted" style="font-size:19px">O padrão é +10 e +30 minutos, mas cada família define o que faz sentido para a rotina.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 PROTÓTIPOS -->
+<section class="slide" data-n="8">
+  <h2>Protótipos de interface</h2>
+  <div class="phones" style="margin-top:28px">
+    <div>
+      <div class="phone">
+        <div class="ph-top"><span class="muted" style="font-size:15px">Sexta, 7 de nov</span><span class="sos"><svg class="ico"><use href="#i-warn"/></svg>SOS</span></div>
+        <div class="ph-h">Bom dia, Maria!</div>
+        <div class="card"><span class="tag prox" style="font-size:14px;padding:4px 10px"><svg class="ico"><use href="#i-clock"/></svg>Próximo: 14h</span><div style="font-weight:700;font-size:21px;margin-top:6px">Losartana 50 mg</div><div class="muted" style="font-size:16px">1 comprimido</div></div>
+        <div class="card"><div class="muted" style="font-size:15px">Hoje, 14h</div><div style="font-weight:700;font-size:19px">Cardiologista</div></div>
+        <div style="flex:1"></div>
+        <div class="btn o" style="font-size:17px">Meus remédios</div><div class="btn o" style="font-size:17px">Minhas consultas</div><div class="btn o" style="font-size:17px"><svg class="ico"><use href="#i-phone"/></svg>Ligar para família</div>
+      </div><p class="cap">Início do idoso</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div style="text-align:center;margin-top:6px"><span class="tag prox" style="font-size:15px"><svg class="ico"><use href="#i-clock"/></svg>São 14h</span></div>
+        <div class="ph-h" style="text-align:center">Hora do remédio!</div>
+        <div class="box-img"><svg style="width:56px;height:56px;color:var(--azul)"><use href="#i-pill"/></svg></div>
+        <div style="text-align:center"><div style="font-weight:700;font-size:24px">Losartana</div><div class="muted" style="font-size:17px">50 mg · 1 comprimido</div></div>
+        <div style="flex:1"></div>
+        <div class="btn g"><svg class="ico"><use href="#i-check"/></svg>Tomei</div>
+        <div class="btn o" style="margin-top:8px;font-size:17px"><svg class="ico"><use href="#i-clock"/></svg>Lembrar em 10 min</div>
+      </div><p class="cap">Alerta de remédio</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div class="ph-h" style="font-size:22px">Olá, Carlos</div>
+        <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:18px">Mãe (Maria)</b></div><div class="muted" style="font-size:15px;margin:4px 0 8px">3 de 5 remédios tomados</div><div class="bar"><i style="background:var(--verde)"></i><i style="background:var(--verde)"></i><i style="background:var(--verde)"></i><i style="background:var(--terra)"></i><i style="border:2px solid var(--borda)"></i></div></div>
+        <div class="card" style="background:var(--terra-tint);border-color:var(--terra-tint)"><span class="tag atr" style="font-size:14px;padding:4px 10px;background:#fff"><svg class="ico"><use href="#i-warn"/></svg>Atrasado 30 min</span><div style="font-weight:700;font-size:17px;margin:6px 0">Losartana das 8h</div><div class="btn" style="background:var(--azul);color:#fff;font-size:16px;padding:10px"><svg class="ico"><use href="#i-phone"/></svg>Ligar</div></div>
+        <div class="card"><div class="muted" style="font-size:15px">Seu Antônio</div><span class="tag ok" style="font-size:14px;padding:4px 10px"><svg class="ico"><use href="#i-check"/></svg>Tudo certo hoje</span></div>
+        <div style="flex:1"></div>
+        <div class="btn o" style="font-size:16px"><svg class="ico"><use href="#i-doc"/></svg>Relatório para o médico</div>
+      </div><p class="cap">Painel do cuidador</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 REQUISITOS NÃO FUNCIONAIS -->
+<section class="slide" data-n="9">
+  <h2>Simples, seguro e acessível</h2>
+  <div class="body">
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div class="box"><h3>Acessibilidade como regra</h3><p class="muted" style="font-size:19px;margin-top:6px">Texto mínimo de 18 px, toque mínimo de 64 px, no máximo 3 botões por tela e fontes Atkinson Hyperlegible e Nunito.</p></div>
+      <div class="box"><h3>Cor nunca é a única pista</h3><p class="muted" style="font-size:19px;margin-top:6px">Todo status tem ícone, palavra e cor, pensando em quem não distingue verde de vermelho.</p></div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div class="box"><h3>Funciona sem internet</h3><p class="muted" style="font-size:19px;margin-top:6px">Os alarmes são locais; o WhatsApp entra quando a conexão volta.</p></div>
+      <div class="box"><h3>Privacidade e LGPD</h3><p class="muted" style="font-size:19px;margin-top:6px">Dados de saúde são sensíveis: o idoso consente quem acompanha e pode revogar a qualquer momento.</p></div>
+      <div class="box" style="border-color:var(--azul)"><h3 style="color:var(--azul)">Nunca contraria a prescrição</h3><p class="muted" style="font-size:19px;margin-top:6px">O app organiza e lembra o que o médico receitou. Não sugere dose nem troca remédio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 ARQUITETURA -->
+<section class="slide" data-n="10">
+  <h2>Arquitetura da solução</h2>
+  <div class="arch" style="margin-top:24px">
+    <div class="col">
+      <div class="node"><b>App do idoso</b><span>Alarmes locais, Tomei, SOS</span></div>
+      <div class="node"><b>App do cuidador</b><span>Painel, cadastros, relatório</span></div>
+    </div>
+    <div class="mid"><div class="wire" style="flex:1"></div>
+      <div class="node core" style="flex:4"><b>API Hora Certa</b><span>Regras de agendamento, escalonamento de alertas, geração de doses, .ics e PDF</span>
+        <div style="margin-top:14px;border-top:2px solid rgba(255,255,255,.3);padding-top:12px"><b style="font-size:19px">Banco de dados</b><span>Pessoas, vínculos, remédios, doses, consultas</span></div></div>
+      <div class="wire" style="flex:1"></div></div>
+    <div class="col">
+      <div class="node"><b>WhatsApp Business API</b><span>Mensagens de lembrete e alerta</span></div>
+      <div class="node"><b>Agendas (.ics)</b><span>Google, Outlook, Apple</span></div>
+      <div class="node"><b>Uber (deep link)</b><span>Destino da consulta preenchido</span></div>
+      <div class="node"><b>Notificações push</b><span>Firebase Cloud Messaging</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 TECNOLOGIAS -->
+<section class="slide" data-n="11">
+  <h2>Tecnologias empregadas</h2>
+  <div class="tech" style="margin-top:32px">
+    <div class="f"><h3>Mobile</h3><ul><li>[Flutter / Dart]</li><li>[Kotlin, Android]</li><li>Notificações locais</li></ul></div>
+    <div class="f"><h3>Back-end</h3><ul><li>[Java + Spring Boot]</li><li>API REST</li><li>[Banco: Oracle]</li></ul></div>
+    <div class="f"><h3>Integrações</h3><ul><li>WhatsApp Business API</li><li>iCalendar (.ics)</li><li>Uber deep link</li><li>Firebase Cloud Messaging</li></ul></div>
+    <div class="f"><h3>Gestão e testes</h3><ul><li>Git e GitHub</li><li>[JUnit, testes de widget]</li><li>[Ferramenta de gestão]</li><li>Design no Claude</li></ul></div>
+  </div>
+  <p class="lead" style="font-size:20px;margin-top:22px">Itens entre colchetes: confirmar com o grupo antes da entrega.</p>
+</section>
+
+<!-- 12 CONCLUSÃO -->
+<section class="slide dark" data-n="12">
+  <h2>Ninguém precisa cuidar sozinho</h2>
+  <p class="lead">O Hora Certa transforma um alarme em uma rede de cuidado: a Dona Maria ganha autonomia, o Carlos ganha paz, e o médico passa a ver a adesão real ao tratamento.</p>
+  <div class="close-grid">
+    <div>
+      <p style="color:#DCE6F7;font-size:18px;margin-bottom:12px">Objetivos de Desenvolvimento Sustentável</p>
+      <div class="ods">
+        <div class="od"><b>ODS 3</b><span>Saúde e bem-estar</span></div>
+        <div class="od"><b>ODS 10</b><span>Redução das desigualdades</span></div>
+        <div class="od"><b>ODS 11</b><span>Cidades sustentáveis</span></div>
+      </div>
+    </div>
+    <div>
+      <p style="color:#DCE6F7;font-size:18px;margin-bottom:12px">Próximos passos</p>
+      <ul class="next" style="padding-left:22px">
+        <li>Testar com idosos e cuidadores reais</li>
+        <li>Parceria formal com a Uber</li>
+        <li>Integração direta com Google Agenda e Outlook</li>
+        <li>Novos públicos: PcD, doenças crônicas, pós-operatório</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+// Relógio de progresso: o ponteiro avança a cada slide; no último, vira o ✓ do logo.
+const slides=[...document.querySelectorAll('.slide')], total=slides.length;
+slides.forEach((s,i)=>{
+  const dark=s.classList.contains('dark'), last=i===total-1, first=i===0;
+  if(first) return;
+  const stroke=dark?'#fff':'#1D4F9F', ang=(i/(total-1))*360-90, r=20;
+  const x=32+r*Math.cos(ang*Math.PI/180), y=32+r*Math.sin(ang*Math.PI/180);
+  const hand= last
+    ? `<path d="M20 33l8 8 16-17" fill="none" stroke="${dark?'#7FD3A0':'#1B7F45'}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`
+    : `<path d="M32 32L${x.toFixed(1)} ${y.toFixed(1)}" stroke="${stroke}" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="32" r="4" fill="${stroke}"/>`;
+  const d=document.createElement('div'); d.className='dial';
+  d.innerHTML=`<svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="${stroke}" stroke-width="4" opacity=".9"/>${hand}</svg><div class="n">${i+1} de ${total}</div>`;
+  s.appendChild(d);
+});
+</script>
+</body>
+</html>
