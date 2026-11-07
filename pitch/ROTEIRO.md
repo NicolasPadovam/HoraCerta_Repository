@@ -7,8 +7,8 @@
 > Lembrete: o pitch vende a **ideia**. Não precisa estar 100% funcionando; o importante é mostrar o protótipo com segurança e citar as tecnologias de cada matéria.
 
 **Formato:**
-- **Pessoa A** (abertura e problema) e **Pessoa C** (arquitetura e encerramento) falam para a câmera, com o slide ao lado ou atrás.
-- **Pessoa B** apresenta a demonstração com a tela do app gravada, de preferência no OBS com a webcam num canto.
+- **Nicolas** (abertura e problema) e **Enzo** (arquitetura e encerramento) falam para a câmera, com o slide ao lado ou atrás.
+- **Vitor** apresenta a demonstração com a tela do app gravada, de preferência no OBS com a webcam num canto.
 
 | Tempo | Quem | Tela | Bloco |
 |---|---|---|---|
