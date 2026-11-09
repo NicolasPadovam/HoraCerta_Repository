@@ -58,6 +58,7 @@
 > No MVP, WhatsApp, agenda e transporte são simulados. Se a banca perguntar: "no MVP essas integrações são simuladas; em produção usam a API oficial do WhatsApp, convites de calendário e o link da Uber".
 
 ## 3:30–4:05 · Arquitetura e tecnologias (Enzo, para a câmera)
+> O briefing pede para mostrar o que foi produzido em **software, banco de dados e infraestrutura**. Enquanto o Enzo fala, insiram 2 ou 3 segundos de tela real de cada item: contêineres rodando no Docker, recurso no portal do Azure, tabelas ou procedure no Oracle e o board no Azure DevOps.
 **Slide 10**
 > "Para sustentar essa experiência, o Hora Certa foi desenvolvido em duas versões: **Flutter**, para Android e iOS, e **Kotlin**, nativo para Android. Os aplicativos se comunicam com **microsserviços em Java**, cada um em um contêiner **Docker** publicado no **Azure**. Os dados ficam no **Oracle Database**, onde rotinas em **PL/SQL** geram as doses a partir da periodicidade e controlam o estoque."
 
@@ -81,8 +82,11 @@
 ---
 
 ## Checklist antes de gravar
+- [ ] Os rostos e as vozes dos três aparecem no vídeo (obrigatório; nada de voz gerada por IA).
+- [ ] Trocar os mockups do slide 8 por **prints reais** do protótipo em Flutter ou Kotlin (o briefing pede "printscreen de protótipos").
+- [ ] Colocar o link público do vídeo no slide 1 e gerar o PDF final.
 - [ ] Gravar a demo com os dados de exemplo: Maria, Losartana, Metformina, Sinvastatina, cardiologista às 14h.
 - [ ] Deixar as telas abertas na ordem da tabela da demo, para a narração não travar.
 - [ ] Ensaiar com cronômetro: demo (Vitor) + arquitetura (Enzo) precisam somar pelo menos 2 min 30 s.
 - [ ] Exportar em HD, subir no YouTube como **público** e testar o link deslogado.
-- [ ] O PDF dos slides e o link do vídeo vão num .ZIP na área de Software Projects Quality Assurance.
+- [ ] Só um integrante entrega o .ZIP (PDF dos slides + link do vídeo) na área de Software Projects Quality Assurance, até **19/11/2026 às 23h55**. Depois baixem o arquivo enviado e confiram.
