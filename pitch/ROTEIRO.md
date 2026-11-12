@@ -84,7 +84,7 @@
 ## Checklist antes de gravar
 - [ ] Os rostos e as vozes dos três aparecem no vídeo (obrigatório; nada de voz gerada por IA).
 - [ ] Trocar os mockups do slide 8 por **prints reais** do protótipo em Flutter ou Kotlin (o briefing pede "printscreen de protótipos").
-- [ ] Colocar o link público do vídeo no slide 1 e gerar o PDF final.
+- [ ] Colocar o link público do vídeo no .ZIP de entrega (ex.: um arquivo link-video.txt).
 - [ ] Gravar a demo com os dados de exemplo: Maria, Losartana, Metformina, Sinvastatina, cardiologista às 14h.
 - [ ] Deixar as telas abertas na ordem da tabela da demo, para a narração não travar.
 - [ ] Ensaiar com cronômetro: demo (Vitor) + arquitetura (Enzo) precisam somar pelo menos 2 min 30 s.
